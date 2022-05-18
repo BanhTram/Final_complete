@@ -69,6 +69,7 @@ app.classCtrl = function ($scope, $location) {
         }
         return max;
     }
+
     $scope.count = function (object, level, parentID) {
         var count = 0;
         for (var i = 0; i < object.length; i++) {
