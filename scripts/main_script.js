@@ -3,6 +3,7 @@ app.controller('myController', function ($scope, $location) {
     app.classCtrl($scope, $location);
     app.studentCtrl($scope, $location);
     app.classExpandCtrl($scope, $location);
+    app.studentExpandCtrl($scope, $location);
 });
 // app.controller('myController', function ($scope, $location) {
     // $scope.klasses = [
