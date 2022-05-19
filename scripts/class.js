@@ -25,10 +25,13 @@ app.classCtrl = function ($scope, $location) {
         if ((name != null || name != undefined) &&
             (belong != null || belong != undefined)
         ) {
-            let index = $scope.klasses.findIndex(temp => temp.name === belong);
+            var index = $scope.klasses.findIndex(temp => temp.name === belong);
+
             var tempOrderByBefore = $scope.klasses[index].orderBy * 1;
             var tempOrderByAfter = $scope.klasses[index + 1].orderBy * 1;
+
             var result = (tempOrderByBefore + tempOrderByAfter) / 2;
+
             var tempKlass = {
                 name: name,
                 parentID: $scope.klasses[index].parentID,
@@ -39,6 +42,7 @@ app.classCtrl = function ($scope, $location) {
             };
 
             $scope.klasses.push(tempKlass);
+
             $location.path('/class');
         }
     }
