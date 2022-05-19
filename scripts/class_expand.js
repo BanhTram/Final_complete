@@ -4,9 +4,11 @@ app.classExpandCtrl = function ($scope, $location) {
         if ((name != null || name != undefined) &&
             (belong != null || belong != undefined)
         ) {
-            var index_delete = $scope.klasses.indexOf(belong);
+            var index_delete = $scope.klasses.findIndex(temp => temp.name === name);
+
             $scope.klasses.splice(index_delete, 1);
-            let index = $scope.klasses.findIndex(temp => temp.name === belong);
+
+            var index = $scope.klasses.findIndex(temp => temp.name === belong);
             var tempOrderByBefore = $scope.klasses[index].orderBy * 1;
             var tempOrderByAfter = $scope.klasses[index + 1].orderBy * 1;
             var result = (tempOrderByBefore + tempOrderByAfter) / 2;
