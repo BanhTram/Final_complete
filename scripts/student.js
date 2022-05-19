@@ -56,10 +56,13 @@ app.studentCtrl = function ($scope, $location) {
 
     $scope.saveEditStudent = function (name, age, klass) {
         if ((name != null || name != undefined) && (age != null || age != undefined) && (klass != null || klass != undefined)) {
-            var index = $scope.studentDefault.indexOf(name);
+            var index = $scope.students.findIndex(temp => temp.name === name);
+
+            $scope.students.splice(index, 1);
+            $scope.students.push({ name: name, age: age, klass: klass });
 
             $scope.studentDefault.splice(index, 1);
-            $scope.studentDefault.push({ name: name, age: age, class: klass });
+            $scope.studentDefault.push({ name: name, age: age, klass: klass });
 
             $location.path('/student');
         }
