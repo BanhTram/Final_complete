@@ -1,4 +1,16 @@
 app.classExpandDeleteCtrl = function ($scope, $location) {
+    $scope.maxLevel = function (object) {
+        var max = 0;
+
+        for (var i = 1; i < object.length; i++) {
+            if (max < object[i].level) {
+                max = object[i].level;
+            }
+        }
+
+        return max;
+    }
+
     $scope.findIndex = function (object, level, parentID) {
         $scope.arrayIndex = [];
 
@@ -17,6 +29,7 @@ app.classExpandDeleteCtrl = function ($scope, $location) {
         var tempLevel = $scope.klasses[index].level;
         var tempParentID = $scope.klasses[index].parentID;
 
+        $scope.klasses.splice(index, 1);
         $scope.arrayIndex = $scope.findIndex($scope.klasses, tempLevel, tempParentID);
 
         for (var i = 0; i < $scope.arrayIndex.length; i++) {
